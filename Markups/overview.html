@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link href="https://fonts.googleapis.com/css?family=Megrim|Nunito+Sans:400,900" rel="stylesheet" />
+		<link rel="icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/155/ear-of-maize_1f33d.png" />
+		<link href="https://fonts.googleapis.com/css2?family=Nova+Cut&display=swap" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300&display=swap" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;700;800;900&display=swap" rel="stylesheet" />
+
+		<title>FARM FRESH</title>
+
+		<style>
+			*,
+			*::before,
+			*::after {
+				margin: 0;
+				padding: 0;
+				box-sizing: inherit;
+			}
+
+			html {
+				font-size: 62.5%;
+				box-sizing: border-box;
+			}
+
+			body {
+				padding: 5rem 5rem 10rem;
+				line-height: 1.7;
+				font-family: 'Nunito Sans', sans-serif;
+				color: #555;
+				min-height: 100vh;
+				background: linear-gradient(to right, #4ee44e, #64e764);
+			}
+
+			h1 {
+				font-family: 'Nova Cut', cursive;
+				font-size: 6rem;
+				color: white;
+				/* transform: skewY(-5deg); */
+				text-align: center;
+				position: relative;
+				word-spacing: 3px;
+			}
+
+			h1::before {
+				content: '';
+				display: block;
+				height: 65%;
+				width: 49%;
+				position: absolute;
+				top: 105%;
+				left: 50%;
+				background: linear-gradient(to right, #4ee44e, #64e764);
+				opacity: 0.8;
+				z-index: -1;
+				transform: skewY(370deg) translate(-50%, -50%);
+			}
+
+			.container {
+				width: 95rem;
+				margin: 0 auto;
+				animation: Cards 2.5s forwards;
+			}
+
+			.cards-container {
+				margin-top: 8rem;
+			}
+
+			.card {
+				background: white;
+				box-shadow: 0 2rem 6rem 1rem rgba(0, 0, 0, 0.15);
+				margin-bottom: 5rem;
+				transform: skewX(-20deg);
+				display: flex;
+
+				/* animation: slideCards 2s ease-in; */
+
+				transition: all 0.5s;
+			}
+
+			.card__emoji {
+				font-size: 5.5rem;
+				line-height: 1.2;
+				padding: 1.5rem 6rem 0.5rem 1.5rem;
+				letter-spacing: -4rem;
+				transform: skewX(20deg);
+			}
+
+			.card__title-box {
+				background: linear-gradient(to right, #4ee44e, #64e764);
+				margin-right: auto;
+				display: flex;
+				align-items: center;
+				padding: 0 3rem;
+			}
+
+			.card__title {
+				font-family: 'Nova Cut', cursive;
+				color: white;
+				font-size: 3.25rem;
+				transform: skewX(20deg);
+			}
+
+			.card__details {
+				display: flex;
+			}
+
+			.card__detail-box {
+				align-self: stretch;
+				border-right: 1px solid #ddd;
+				display: flex;
+				align-items: center;
+			}
+
+			.card__detail-box:last-child {
+				border: none;
+			}
+
+			.card__detail {
+				font-weight: 400;
+				font-size: 1.8rem;
+				transform: skewX(20deg);
+				padding: 1.75rem;
+			}
+
+			.card__detail--organic {
+				font-weight: 900;
+				text-transform: uppercase;
+				font-size: 1.9rem;
+				background-image: linear-gradient(to right, #4ee44e, #64e764);
+				/* background-image: linear-gradient(to bottom right, #90ee90, #006400); */
+				-webkit-background-clip: text;
+				background-clip: text;
+				color: transparent;
+			}
+
+			.card__detail--price {
+				font-weight: 900;
+				font-size: 1.9rem;
+			}
+
+			.card__link:link,
+			.card__link:visited {
+				flex: 0 0 auto;
+				background-color: #4ee44e;
+				color: white;
+				font-size: 1.6rem;
+				font-weight: 900;
+				text-transform: uppercase;
+				text-decoration: none;
+				padding: 2.5rem;
+				text-align: center;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				transition: all 0.3s;
+			}
+
+			.card__link:hover,
+			.card__link:active {
+				background-color: #089000 /*#9be15d*/;
+			}
+
+			.card__link span {
+				transform: skewX(20deg);
+			}
+
+			.card:hover {
+				transform: skewX(-20deg) scale(1.08);
+				box-shadow: 0 3rem 8rem 2rem rgba(0, 0, 0, 0.15);
+			}
+
+			.emoji-left {
+				font-size: 2rem;
+				margin-right: 1rem;
+			}
+
+			.emoji-right {
+				font-size: 2rem;
+				margin-left: 1rem;
+			}
+
+			.not-organic {
+				display: none;
+			}
+
+			/* @keyframes slidein {
+				0% {
+					opacity: 0;
+					transform: translateY(-10rem);
+				}
+				80% {
+					transform: translateY(2rem);
+				}
+				100% {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			} */
+
+			@keyframes Cards {
+				from {
+					opacity: 0;
+				}
+				to {
+					opacity: 1;
+				}
+			}
+
+			::selection {
+				background-color: #089000;
+				color: white;
+			}
+
+			.btn {
+				padding: 1.5rem;
+				background: linear-gradient(
+					to right,
+					rgba(246, 49, 14, 1) 0%,
+					rgba(237, 78, 53, 1) 50%,
+					rgba(221, 33, 8, 1) 51%,
+					rgba(221, 38, 14, 1) 71%,
+					rgba(216, 40, 24, 1) 100%
+				);
+				display: block;
+				margin: auto;
+				margin-top: 8rem;
+				transition: all 0.5s;
+				cursor: pointer;
+				border: none;
+			}
+
+			.btn__name {
+				letter-spacing: 3px;
+				color: #fff;
+				text-align: center;
+				font-weight: 200;
+				font-size: 1.5rem;
+				font-family: 'Poppins', sans-serif;
+				margin-right: 1.7rem;
+				text-transform: uppercase;
+			}
+
+			.btn__lang {
+				color: #fff;
+				font-weight: 700;
+				font-size: 1.5rem;
+				font-family: 'Poppins', sans-serif;
+				margin-left: 1rem;
+				margin-right: 1rem;
+				line-height: 1;
+				text-align: center;
+				letter-spacing: 3px;
+				text-transform: uppercase;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<h1>🌽 Farm Fresh 🥦</h1>
+
+			<div class="cards-container">
+				{%PRODUCT_CARDS%}
+			</div>
+
+			<button class="btn"><span class="btn__name">Made with </span><span class="btn__lang"> Node.js</span></button>
+		</div>
+	</body>
+</html>
